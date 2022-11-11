@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block Title %}Home{% endblock Title %}
+
+{% block HomeActive %}active{% endblock HomeActive %}
+
+{% block CSSFilePath %}<link rel="stylesheet" href="{% static 'CSSFiles/home.css' %}" />{% endblock CSSFilePath %}
+
+{% block Body %}
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <a href="/home">
+        <img class="d-block w-100" id="carouselimage" src="{% static 'Images/Home.jpg' %}" alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+        <b>
+          <h5>Home</h5>
+          <p>Enjoy your Musick app</p>
+        </b>
+      </div>
+      </a>
+    </div>
+
+    <div class="carousel-item">
+      <a href="/search">
+        <img class="d-block w-100" id="carouselimage" src="{% static 'Images/Search.png' %}" alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+        <b>
+          <h5>Search</h5>
+          <p>Search songs</p>
+        </b>
+      </div>
+      </a>    
+    </div>
+
+    <div class="carousel-item">
+      <a href="/addASongToMusicApp">
+        <img class="d-block w-100" id="carouselimage" src="{% static 'Images/AddASongToMusicApp.webp' %}" alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+        <b>
+          <h5>Add a song</h5>
+          <p>Add a song to Musick app</p>
+        </b>
+      </div>
+      </a>    
+    </div>
+
+    <div class="carousel-item">
+      <a href="/contact">
+        <img class="d-block w-100" id="carouselimage" src="{% static 'Images/Contact.jpg' %}" alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+        <b>
+          <h5 class="text-dark">Contact</h5>
+          <p class="text-dark">Contact us for support</p>
+        </b>
+      </div>
+      </a>    
+    </div>
+  </div>
+
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+
+</div>
+
+<h3 id="latestsong">Latest Songs</h3>
+
+<div class="songcontainer">
+
+  {% for Song in Songs %}
+
+    {% if forloop.counter < 11 %}
+    <tr class="{% cycle Song Song %}">
+      <div class="songcovercontainer">
+        <a href="/aboutSong/{{Song.Slug}}" style="color: black;">
+          <img src="/Media/SongCovers/{{Song.Song_Cover_File_Name}}" alt="..." id="songcover">
+          <div class="songtitle" style="display: inline;">{{Song.Song_Title}}</div>
+        </a>
+      </div>
+    </tr>
+    {% endif %}
+
+  {% endfor %}
+
+</div>
+
+<div class="aboutweb">
+
+  <h3 style="bottom: 15px">About Musick</h3>
+  <p>
+    Musick is a complete package that allows you to stream music online, set caller tunes, listen to podcasts, 
+    download MP3 music offline, and much more! Since music is essentially the only thing that can truly understand 
+    a person, we work hard to offer our audience the ideal blend of MP3 from your favorite albums & artists in HD 
+    Quality. We have made online music streaming simple, fun, and all about you! So, what’s the wait for, Discover 
+    and listen to millions of online songs from different genres, explore mind-blowing playlists, podcasts & 
+    Download MP3 Songs exclusively on Musick.
+  </p>
+
+</div>
+
+{% endblock Body %}
+
+{% block FooterPosition %}relative{% endblock FooterPosition %}

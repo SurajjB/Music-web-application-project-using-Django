@@ -1,0 +1,66 @@
+{% extends 'loginsystembase.html' %}
+
+{% load static %}
+
+{% block Title %}Signup{% endblock Title %}
+
+{% block Contact %}active{% endblock Contact %}
+
+{% block CSSFilePath %} <link rel="stylesheet" href="{% static 'CSSFiles/signup.css' %}"> {% endblock CSSFilePath %}
+
+{% block LoginSignup %}
+
+<li class="nav-item ">
+  <a class="nav-link" href="/">Login</a>
+</li>
+
+{% endblock LoginSignup %}
+
+{% block Body %}
+
+<div class="imagecontainer">
+    <img class="d-block w-100" id="containerimage" src="{% static 'Images/Home.jpg' %}" alt="">
+
+    <div class="formcontainer">
+        <form id="form" action="/signup" method="post">
+            {% csrf_token %}
+            <h3>Signup</h3><br>
+
+            <p style="margin-bottom: 1.5rem;"><sup>*</sup> Indicates a required field.&nbsp; <a href="/home" style="color: black;"> Click here to skip signup. </a></p>
+
+            <div class="form-inline">
+                <label>First Name <sup>*</sup>&emsp; &emsp; &emsp; </label>
+                <input type="text" class="form-control" id="First_Name" name="First_Name" placeholder="Enter your first name" style="width: 200px;" pattern="[A-Za-z ]{1,30}" title="Enter only alphabatic letters" required>
+                <label>&ensp; Last Name <sup>*</sup>&ensp; </label>
+                <input type="text" class="form-control" id="Last_Name" name="Last_Name" placeholder="Enter your last name" style="width: 200px;" pattern="[A-Za-z ]{1,30}" title="Enter only alphabatic letters" required>
+            </div>
+
+            <div class="form-inline">
+                <label>Email address <sup>*</sup>&emsp; &emsp; </label>
+                <input type="email" class="form-control" id="Email_ID" name="Email_ID" placeholder="Enter your email address" style="width: 200px;" required>
+                <label>&ensp; Password <sup>*</sup>&emsp; </label>
+                <input type="password" class="form-control" id="Password" name="Password" placeholder="Enter your Password" style="width: 200px;" pattern="[A-Za-z0-9!#$%&'()*+,-./:;<=>?@[\]^_`{|}~""]{6,12}" title="Enter password with length of 6 to 12 letters only" required>
+            </div>
+
+            <div class="form-inline">
+                <label>Confirm Password <sup>*</sup>&ensp; </label>
+                <input type="password" class="form-control" id="Confirm_Password" name="Confirm_Password" placeholder="Confirm your Password" style="width: 200px;" pattern="[A-Za-z0-9!#$%&'()*+,-./:;<=>?@[\]^_`{|}~""]{6,12}" title="Enter password with length of 6 to 12 letters only" required>
+                &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <button type="submit" class="btn btn-success" style="background-color: black; border: black">Submit</button>
+            </div>
+
+            
+            {% if messages %}
+            <div class="message">
+                {% for message in messages %}{{message|safe}}
+                {% endfor %}
+            </div>           
+            {% endif %}
+
+          </form>
+    </div>
+
+</div>
+
+{% endblock Body %}
+
+{% block FooterPosition %}relative{% endblock FooterPosition %}

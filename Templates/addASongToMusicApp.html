@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block Title %}addASongToMusicApp{% endblock Title %}
+
+{% block AddASongToMusicAppActive %}active{% endblock AddASongToMusicAppActive %}
+
+{% block CSSFilePath %} <link rel="stylesheet" href="{% static 'CSSFiles/addASongToMusicApp.css' %}"> {% endblock CSSFilePath %}
+
+{% block Body %}
+
+<div class="imagecontainer">
+    <img class="d-block w-100" id="containerimage" src="{% static 'Images/addASongToMusicApp.webp' %}" alt="">
+</div>
+
+<div class="form" style="padding: 30px 150px 50px 150px;">
+    <form action="/addASongToMusicApp" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <h2 class="text-center">
+            Add a song to Musick app
+        </h2>
+        
+        <p style="margin-bottom: 1.5rem;"><sup>*</sup> Indicates a required field. </p>
+        
+        <div class="form-group">
+            <label>Song title <sup>*</sup> </label>
+            <input type="name" class="form-control" id="Song_Title" name="Song_Title" placeholder="Enter song title" pattern="[A-Za-z ]{1-30}" title="Enter only alphabatic letters" required>
+        </div>
+
+        <div class="form-inline">
+            <label>Song artist  <sup>*</sup> &ensp; &nbsp;</label>
+            <input type="name" class="form-control" id="Song_Artist" name="Song_Artist" placeholder="Enter song artist" style="width: 404px;" pattern="[A-Za-z ]{1-30}" title="Enter only alphabatic letters" required>
+            <label>&ensp; Featured artist&nbsp;(s) &nbsp;</label>
+            <input type="name" class="form-control" id="Song_Featured_Artist" name="Song_Featured_Artist" placeholder="Enter featured artist (s)" style="width: 403px;" pattern="[A-Za-z; ]{1-60}" title="Enter only alphabatic letters">
+        </div>
+        
+        <div class="form-inline">
+            <label>Song album <sup>*</sup> &ensp;</label>
+            <input type="text" class="form-control" id="Song_Album" name="Song_Album" placeholder="Enter song album" style="width: 405px;" pattern="[A-Za-z ]{1-20}" title="Enter only alphabatic letters" required>
+            <label>&ensp; Song released &nbsp; <sup> *</sup> &emsp; </label>
+            <input type="text" class="form-control" id="Song_Released" name="Song_Released" placeholder="Enter song released year" style="width: 404px;" pattern="[0-9]{4}" title="Enter year in number" required>
+        </div>
+
+        <div class="form-group">
+            <label>Song lyrics</label>
+            <textarea class="form-control" id="Song_Lyrics" name="Song_Lyrics" placeholder="Enter song lyrics" rows="10"></textarea>
+        </div>
+
+        <div class="form-inline">
+            <label>Song audio  <sup>*</sup> &nbsp; &nbsp;</label>
+            <input type="file" id="Song_Audio" name="Song_Audio" accept=".mp3,audio/*" required>
+            <label>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &ensp; Song duration  <sup>*</sup> &emsp;</label>
+            <input type="text" class="form-control" id="Song_Duration" name="Song_Duration" placeholder="Enter song duration" minlength="5" style="width: 399px;" pattern="[0-9:]{5}" title="Enter audio duration in mm:ss format" required>
+        </div>
+
+        <div class="form-inline">
+            <label>Song cover <sup>*</sup> &nbsp; &nbsp;</label>
+            <input type="file" id="Song_Cover" name="Song_Cover" accept="image/*" required>
+            <label>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &ensp; Song video &emsp; &nbsp; &nbsp; &nbsp;</label>
+            <input type="file" id="Song_Video" name="Song_Video" accept=".mp4,video/*">
+        </div>
+        
+        <div class="form-group">
+            <label>Song description</label>
+            <textarea class="form-control" id="Song_Description" name="Song_Description" placeholder="Enter song description" maxlength="1000" rows="5"></textarea>
+        </div>
+
+        <div class="button">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </form>
+</div>
+
+{% endblock Body %}
+
+{% block FooterPosition %}relative{% endblock FooterPosition %}

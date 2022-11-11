@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block Title %}Search{% endblock Title %}
+
+{% block SearchActive %}active{% endblock SearchActive %}
+
+{% block CSSFilePath %} <link rel="stylesheet" href="{% static 'CSSFiles/search.css' %}"> {% endblock CSSFilePath %}
+
+{% block Body %}
+
+<div class="imagecontainer">
+  <img class="d-block w-100" id="containerimage" src="{% static 'Images/Search.png' %}" alt="">
+</div>
+
+<div class="form">
+
+  <form action="/search" method="post">
+
+    {% csrf_token %}
+    <div class="form-inline">
+      <input type="text" class="form-control" id="Search_Results" name="Search_Results" placeholder="Search by song name or artist" style="width: 300px;" pattern="[A-Za-z0-9!#$%&'()*+,-./:;<=>?@[\]^_`{|}~""]{0, 100}" required>
+      &ensp; <button type="submit" class="btn btn-success" style="background-color: black; border: black">Submit</button>
+    </div>
+
+  </form>
+
+</div>
+
+{% if messages %}
+    {% for message in messages %} 
+    {{message|safe}}
+  {% endfor %}
+             
+{% endif %}
+
+<div class="songcontainer">
+
+  {% for Song in Songs %}
+
+    {% if forloop.counter < 11 %}
+    <tr class="{% cycle Song Song %}">
+      <div class="songcovercontainer">
+        <a href="/aboutSong/{{Song.Slug}}" style="color: black;">
+          <img src="/Media/SongCovers/{{Song.Song_Cover_File_Name}}" alt="..." id="songcover">
+          <div class="songtitle" style="display: inline;">{{Song.Song_Title}}</div>
+        </a>
+      </div>
+    </tr>
+    {% endif %}
+
+  {% endfor %}
+
+</div>
+
+{% endblock Body %}
+
+
+{% block FooterPosition %}{% if messages and Flag == 1 %}relative {% else %}absolute{% endif %}{% endblock FooterPosition %}
+

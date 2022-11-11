@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block Title %}AboutSong{% endblock %}
+
+{% block CSSFilePath %}<link rel="stylesheet" href="{% static 'CSSFiles/aboutSong.css' %}">{% endblock CSSFilePath %}
+
+{% block Body %}
+
+  <div class="imagecontainer">
+    <img class="d-block w-100" id="containerimage" src="{% static 'Images/Home.jpg' %}" alt="...">
+  </div>
+
+  <img src="/Media/SongCovers/{{Song.Song_Cover_File_Name}}" class="songcover" alt="...">
+
+  <div class="songinfo">
+    <p>
+      <h1>{{Song.Song_Title}}</h1>
+      Artist: {{Song.Song_Artist}} <br>
+      Featured Artist: {{Song.Song_Featured_Artist}} <br>
+      Album: {{Song.Song_Album}} <br>
+      Released: {{Song.Song_Released}}
+    </p>
+  </div>
+
+  <div class="aboutsong">
+    <h3>About</h3>
+    <p>
+      {{Song.Song_Description}}
+    </p>
+  </div>
+
+  <div class="songplayer">
+    <audio controls src="/Media/SongAudios/{{Song.Song_Audio_File_Name}}" style="width: 1170px;"></audio>
+  </div>
+
+  <div class="songlyrics">
+    <h3 style="margin-bottom: 10px;">Lyrics</h3>
+    <pre style="font-size: 16px; font-family: unset">{{Song.Song_Lyrics}}</pre>
+  </div>
+
+{% endblock %}
+
+{% block FooterPosition %}relative{% endblock %}

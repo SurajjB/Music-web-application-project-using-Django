@@ -1,0 +1,45 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+#carouselimage {
+    width: 1080px;
+    height: 275px;
+    object-fit: cover
+}
+
+#latestsong{
+    position: relative;
+    padding-left: 120px;
+    top: 15px;
+    text-align: justify;
+}
+
+.songcontainer{ 
+    position: relative;
+    top: 15px; 
+    text-align: center; 
+    padding: 0px 50px 50px 50px;
+}
+
+.songcovercontainer{
+    display: inline-block;
+    width: 225px; 
+    height: 230px;
+}
+
+#songcover{
+    display: block;
+    width: 225px; 
+    height: 200px; 
+    padding: 20px 20px 5px 20px; 
+    object-fit: cover; 
+    border-radius: 50px
+}
+
+.aboutweb {
+    text-align: justify;
+    position: relative;
+    padding: 0px 120px 30px 120px;
+}

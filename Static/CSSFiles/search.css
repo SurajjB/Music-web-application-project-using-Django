@@ -1,0 +1,52 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#containerimage {
+    width: 1080px;
+    height: 275px;
+    position: relative;
+    object-fit: cover
+}
+
+.form-inline{
+    position: absolute;
+    top: 250px;
+    left: 37%;
+}
+
+#searchresults{
+    position: relative;
+    top: 15px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.songcontainer{ 
+    position: relative;
+    top: 15px; 
+    text-align: center; 
+    padding: 0px 50px 50px 50px;
+}
+
+.songcovercontainer{
+    display: inline-block;
+    width: 225px; 
+    height: 230px;
+}
+
+#songcover{
+    display: block;
+    width: 225px; 
+    height: 200px; 
+    padding: 20px 20px 5px 20px; 
+    object-fit: cover; 
+    border-radius: 50px
+}
+
+.message{
+    position: relative;
+    top: 15px;
+    text-align: center;
+}

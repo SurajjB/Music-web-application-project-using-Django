@@ -1,0 +1,42 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#containerimage {
+    width: 1080px;
+    height: 275px;
+    position: absolute;
+    object-fit: cover
+}
+
+.songcover {
+    width: 530px;
+    height: 330px;
+    object-fit: cover;
+    position: absolute;
+    padding: 100px 100px 25px 200px;
+}
+
+.songinfo {
+    position: absolute;
+    top: 150px;
+    right: 250px
+}
+
+.aboutsong {
+    position: relative;
+    padding: 350px 100px 0px 100px;
+    text-align: justify;
+}
+
+.songplayer{
+    position: relative;
+    padding: 10px 90px 10px 90px;
+}
+
+.songlyrics {
+    position: relative;
+    padding: 10px 100px 30px 100px;
+    text-align: justify;
+}

@@ -1,0 +1,23 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#containerimage {
+    width: 1080px;
+    height: 275px;
+    position: absolute;
+    object-fit: cover
+}
+
+.form{
+    padding: 300px 150px 50px 150px;
+}
+
+.form-inline{
+    margin-bottom: 1.5rem;
+}
+
+.form-group{
+    margin-bottom: 1.5rem;
+}
